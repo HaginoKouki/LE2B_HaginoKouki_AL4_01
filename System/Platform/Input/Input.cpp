@@ -103,7 +103,7 @@ Cake::Vector2 Input::GetMoveAxis() {
 	return ClampLength(axis);
 }
 
-bool Input::GetRotateButton() {
+bool Input::GetJumpButton() {
 	if (!isGameInputEnabled_) {
 		return false;
 	}
@@ -111,12 +111,28 @@ bool Input::GetRotateButton() {
 	return input->TriggerKey(DIK_SPACE) || IsPadTriggered(XINPUT_GAMEPAD_A);
 }
 
-bool Input::IsRotateButtonHeld() {
+bool Input::IsJumpButtonHeld() {
 	if (!isGameInputEnabled_) {
 		return false;
 	}
 	const KamataEngine::Input* input = KamataEngine::Input::GetInstance();
 	return input->PushKey(DIK_SPACE) || IsPadPressed(XINPUT_GAMEPAD_A);
+}
+
+bool Input::GetAttackButton() {
+	if (!isGameInputEnabled_) {
+		return false;
+	}
+	const KamataEngine::Input* input = KamataEngine::Input::GetInstance();
+	return input->TriggerKey(DIK_J) || IsPadTriggered(XINPUT_GAMEPAD_X);
+}
+
+bool Input::GetDodgeButton() {
+	if (!isGameInputEnabled_) {
+		return false;
+	}
+	const KamataEngine::Input* input = KamataEngine::Input::GetInstance();
+	return input->TriggerKey(DIK_K) || IsPadTriggered(XINPUT_GAMEPAD_B);
 }
 
 } // namespace Cake

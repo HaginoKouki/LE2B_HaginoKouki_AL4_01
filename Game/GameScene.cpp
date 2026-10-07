@@ -1,51 +1,65 @@
 #include "GameScene.h"
 
-#include <cassert>
-#include <optional>
-#include <string>
+#include <memory>
 
-#include "Game/Puzzle/PuzzleRule.h"
-#include "Game/Puzzle/StageText.h"
-#include "System/Platform/Input/Input.h"
+#include "Game/Object/Block.h"
+#include "Game/Object/Player.h"
+#include "System/Platform/Time/Time.h"
 #ifdef USE_IMGUI
 #include <imgui.h>
 #endif // USE_IMGUI
 
-#include "System/Platform/Time/Time.h"
-#include "System/Render/Renderer/ModelManager.h"
-
 GameScene::~GameScene() {
 }
 
-void GameScene::Initialize() {
-	cubeModel_.Initialize(ModelManager::Load("cube"));
-	cubeObject_ = static_cast<StaticModelObject*>(AddGameObject(std::make_unique<StaticModelObject>()));
-	cubeObject_->SetCamera(&camera_);
-	cubeObject_->SetModelRenderer(&cubeModel_);
+Block* GameScene::AddBlock(const Cake::Vector3& center, const Cake::Vector2& size) {
+	Block* block = static_cast<Block*>(AddGameObject(std::make_unique<Block>()));
+	block->Setup(center, Cake::Vector3{size.x, size.y, kBlockDepth});
+	return block;
+}
 
-	// 1マス拾って3マスにし、1回回すと■がゴールに届く確認用ステージ.
-	const std::optional<Puzzle::PuzzleState> stage = Puzzle::StageText::Parse(
-		{
-			"..G..",
-			".....",
-			".....",
-			"@o1..",
-		},
-		1
-	);
-	assert(stage.has_value() && "ステージの文字が不正");
-	initialState_ = stage.value();
-	state_ = initialState_;
+void GameScene::Initialize() {
+	/*
+	* ステージ
+	———————————————*/
+	// 床。上面が kFloorTop になるように、高さの半分だけ下げて置く.
+	AddBlock({20.0f, kFloorTop - 1.0f, 0.0f}, {kStageRight - kStageLeft, 2.0f});
+	// 左右の壁。ステージの外へ落ちないようにする.
+	AddBlock({kStageLeft - 1.0f, 5.0f, 0.0f}, {2.0f, 12.0f});
+	AddBlock({kStageRight + 1.0f, 5.0f, 0.0f}, {2.0f, 12.0f});
+	// 足場。色を変えて床と見分ける.
+	const Cake::Vector4 platformColor{0.6f, 0.8f, 1.0f, 1.0f};
+	AddBlock({8.0f, 2.5f, 0.0f}, {4.0f, 1.0f})->SetColor(platformColor);
+	AddBlock({14.0f, 4.5f, 0.0f}, {4.0f, 1.0f})->SetColor(platformColor);
+	AddBlock({22.0f, 3.0f, 0.0f}, {6.0f, 1.0f})->SetColor(platformColor);
+	AddBlock({32.0f, 6.0f, 0.0f}, {4.0f, 1.0f})->SetColor(platformColor);
+
+	/*
+	* 自機
+	———————————————*/
+	player_ = static_cast<Player*>(AddGameObject(std::make_unique<Player>()));
+	player_->SetPosition({0.0f, kFloorTop + 1.0f, 0.0f});
+
+	/*
+	* カメラ
+	———————————————*/
+	// 真横から見る（回転なし）。距離だけ近づけて自機を大きく映す.
+	camera_.SetRotation(Cake::Vector3::Zero);
+	camera_.SetDistance(kCameraDistance);
+	camera_.GetCameraFollow().SetBaseObject(player_);
+
+	// 注視点の移動範囲。画面の半分ぶん内側に収めれば、ステージの外が映らない.
+	const Cake::Vector2 visibleHalfSize = camera_.GetVisibleSize() * 0.5f;
+	cameraClamp_.min = {kStageLeft + visibleHalfSize.x, kFloorTop + visibleHalfSize.y - 2.0f, 0.0f};
+	cameraClamp_.max = {kStageRight - visibleHalfSize.x, kCameraTop, 0.0f};
 }
 
 void GameScene::Update(Cake::Time* time) {
-	UpdatePuzzle(time);
 	// updateQueue_ が小さい順に更新し、その後に衝突判定まで済ませる.
 	UpdateGameObjects(time);
 
 	// オブジェクトが動き終わってから、追従先とシェイクを反映する.
-	// 注視点の移動範囲を制限したい場合は camera_.Update(time, 範囲) を使う.
-	camera_.Update(time);
+	camera_.Update(time, cameraClamp_);
 
 #ifdef USE_IMGUI
 	// カメラ更新の後に描く。そうしないと1フレーム前のカメラで座標変換してしまう.
@@ -53,52 +67,21 @@ void GameScene::Update(Cake::Time* time) {
 	collisionManager_.DrawDebugUI();
 	collisionManager_.DrawDebugShapes(camera_);
 
-	ImGui::Begin("Puzzle");
-	static constexpr const char* kDirectionNames[] = {"None", "Up", "Down", "Left", "Right"};
-	ImGui::Text("Floor side: %s", kDirectionNames[static_cast<size_t>(state_.gravity)]);
-	ImGui::Text("Rotation: %d / %d", state_.rotationCount, state_.rotationLimit);
-	ImGui::Text("%s", state_.isCleared ? "CLEAR" : (state_.isMissed ? "MISS" : "PLAYING"));
-	for (const std::string& row : Puzzle::StageText::ToRows(state_)) {
-		ImGui::TextUnformatted(row.c_str());
+	ImGui::Begin("Player");
+	if (player_) {
+		const Cake::Vector3 position = player_->GetWorldPosition();
+		const Cake::Vector3 velocity = player_->GetRigidBody().GetVelocity();
+		ImGui::Text("Position : %.2f, %.2f, %.2f", position.x, position.y, position.z);
+		ImGui::Text("Velocity : %.2f, %.2f, %.2f", velocity.x, velocity.y, velocity.z);
+		ImGui::Text("Grounded : %s", player_->IsGrounded() ? "true" : "false");
+		ImGui::Text("Facing   : %s", player_->GetFacing() > 0.0f ? "Right" : "Left");
 	}
+	ImGui::Separator();
+	ImGui::TextUnformatted("Move: A/D, Left/Right, L-Stick");
+	ImGui::TextUnformatted("Jump: SPACE / Pad A");
+	ImGui::TextUnformatted("Attack: J / Pad X   Dodge: K / Pad B");
 	ImGui::End();
 #endif // USE_IMGUI
-}
-
-void GameScene::UpdatePuzzle(Cake::Time* time) {
-	// 終わった後は SPACE でやり直す（確認用。本番はミスで自動リスタート、クリアで次のステージ）.
-	if (state_.isCleared || state_.isMissed) {
-		if (Cake::Input::GetRotateButton()) {
-			state_ = initialState_;
-			stepTimer_ = 0.0f;
-		}
-		return;
-	}
-
-	// 押した瞬間に回す。長押しはやり直し.
-	// 長押しの前に1回回ってしまうが、やり直しで初期状態に戻るので問題ない.
-	if (Cake::Input::GetRotateButton()) {
-		Puzzle::PuzzleRule::Rotate(state_);
-	}
-	if (Cake::Input::IsRotateButtonHeld()) {
-		const float previousHold = holdTimer_;
-		holdTimer_ += time->GetUnscaledDeltaTime();
-		// しきい値をまたいだ1回だけやり直す。押しっぱなしで何度もやり直さないように.
-		if (previousHold < kRetryHoldTime && kRetryHoldTime <= holdTimer_) {
-			state_ = initialState_;
-			stepTimer_ = 0.0f;
-			return;
-		}
-	} else {
-		holdTimer_ = 0.0f;
-	}
-
-	// 一定間隔で1歩ずつ進める。フレームレートに関係なく、同じ入力なら同じ結果になる.
-	stepTimer_ += time->GetDeltaTime();
-	while (stepTimer_ >= kStepInterval) {
-		stepTimer_ -= kStepInterval;
-		Puzzle::PuzzleRule::Step(state_);
-	}
 }
 
 void GameScene::DrawBackground() {

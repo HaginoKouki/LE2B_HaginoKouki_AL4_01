@@ -7,10 +7,14 @@
  * 【ゲーム固有の操作はここに足す】
  * 「ジャンプ」「攻撃」のような操作は、IsPadTriggered() と TriggerKey() を
  * 組み合わせた関数を Cake::Input に追加して、キー割り当てを1箇所に集める。
- * 例:
- *   bool Input::GetJumpButton() {
- *       return KamataEngine::Input::GetInstance()->TriggerKey(DIK_SPACE) || IsPadTriggered(XINPUT_GAMEPAD_A);
- *   }
+ * 呼び出し側は DIK_〇〇 や XINPUT_GAMEPAD_〇〇 を直接書かない.
+ *
+ * 【現在の割り当て】
+ *   移動     : WASD / 矢印キー / 左スティック
+ *   ジャンプ : SPACE / パッド A
+ *   攻撃     : J / パッド X
+ *   回避     : K / パッド B
+ *   決定     : SPACE / Enter / パッド A（タイトルやメニュー用）
  *
  * ====================================*/
 #include "KamataEngine.h"
@@ -53,14 +57,21 @@ public:
 	/// <summary>
 	/// 移動入力。WASD・矢印キー・左スティックのどれからでも取れる。Y+ が上.
 	/// 長さは最大 1。キーボードの斜め入力も 1 に揃える.
+	/// 2軸アクションでは x だけを使い、y は梯子やしゃがみなどに使う.
 	/// </summary>
 	static Cake::Vector2 GetMoveAxis();
 
-	// ステージ回転。SPACE / パッドの A。押した瞬間だけ true.
-	static bool GetRotateButton();
+	// ジャンプ。SPACE / パッドの A。押した瞬間だけ true.
+	static bool GetJumpButton();
 
-	// 回転ボタンを押し続けているか。長押しでのやり直しに使う.
-	static bool IsRotateButtonHeld();
+	// ジャンプボタンを押し続けているか。長押しで高く跳ぶ（可変ジャンプ）の判定に使う.
+	static bool IsJumpButtonHeld();
+
+	// 攻撃。J / パッドの X。押した瞬間だけ true.
+	static bool GetAttackButton();
+
+	// 回避。K / パッドの B。押した瞬間だけ true.
+	static bool GetDodgeButton();
 
 private:
 	static inline bool isGameInputEnabled_ = true;

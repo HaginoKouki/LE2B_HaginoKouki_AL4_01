@@ -85,7 +85,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;_DEBUG;USE_IMGUI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
@@ -116,7 +116,7 @@ xcopy "$(ProjectDir)..\External\KamataEngine\shaders" "$(ProjectDir)Resources\En
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <Optimization>MinSpace</Optimization>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -151,7 +151,7 @@ xcopy "$(ProjectDir)..\External\KamataEngine\shaders" "$(ProjectDir)Resources\En
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;USE_IMGUI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <Optimization>Disabled</Optimization>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -180,6 +180,83 @@ xcopy "$(ProjectDir)..\External\KamataEngine\shaders" "$(ProjectDir)Resources\En
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="System\Foundation\Animation\AnimationClip.cpp" />
+    <ClCompile Include="System\Foundation\Math\Collision2D.cpp" />
+    <ClCompile Include="System\Foundation\Math\Collision3D.cpp" />
+    <ClCompile Include="System\Foundation\Math\Geometry.cpp" />
+    <ClCompile Include="System\Foundation\Math\IsCollision.cpp" />
+    <ClCompile Include="System\Foundation\Math\Matrix.cpp" />
+    <ClCompile Include="System\Foundation\Math\Quaternion.cpp" />
+    <ClCompile Include="System\Foundation\Math\Transform.cpp" />
+    <ClCompile Include="System\Foundation\Math\Vector.cpp" />
+    <ClCompile Include="System\Game.cpp" />
+    <ClCompile Include="System\Platform\Input\Input.cpp" />
+    <ClCompile Include="System\Platform\Sound\Sound.cpp" />
+    <ClCompile Include="System\Platform\Time\Time.cpp" />
+    <ClCompile Include="System\Render\Camera\Camera.cpp" />
+    <ClCompile Include="System\Render\Camera\CameraFollow.cpp" />
+    <ClCompile Include="System\Render\Camera\CameraShake.cpp" />
+    <ClCompile Include="System\Render\Camera\DebugFlyCamera.cpp" />
+    <ClCompile Include="System\Render\Debug\DebugDraw.cpp" />
+    <ClCompile Include="System\Render\PostProcess\ScreenEffect.cpp" />
+    <ClCompile Include="System\Render\Renderer\ModelManager.cpp" />
+    <ClCompile Include="System\Render\Renderer\ModelRenderer.cpp" />
+    <ClCompile Include="System\Render\Renderer\SpriteRenderer.cpp" />
+    <ClCompile Include="System\Scene\Animation\Animator.cpp" />
+    <ClCompile Include="System\Scene\Collider\Collider.cpp" />
+    <ClCompile Include="System\Scene\Collider\CollisionManager.cpp" />
+    <ClCompile Include="System\Scene\GameObject\GameObject.cpp" />
+    <ClCompile Include="System\Scene\Physics\Rigidbody.cpp" />
+    <ClCompile Include="System\Scene\SceneBase.cpp" />
+    <ClCompile Include="System\Scene\SceneManager.cpp" />
+    <ClCompile Include="Game\GameScene.cpp" />
+    <ClCompile Include="Game\Object\Block.cpp" />
+    <ClCompile Include="Game\Object\Player.cpp" />
+    <ClCompile Include="Game\TitleScene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="System\Foundation\Animation\AnimationClip.h" />
+    <ClInclude Include="System\Foundation\Animation\AnimationCurve.h" />
+    <ClInclude Include="System\Foundation\Grid\Grid.h" />
+    <ClInclude Include="System\Foundation\Math\Collision2D.h" />
+    <ClInclude Include="System\Foundation\Math\Collision3D.h" />
+    <ClInclude Include="System\Foundation\Math\Convert.h" />
+    <ClInclude Include="System\Foundation\Math\Easing.h" />
+    <ClInclude Include="System\Foundation\Math\Geometry.h" />
+    <ClInclude Include="System\Foundation\Math\Geometry2D.h" />
+    <ClInclude Include="System\Foundation\Math\IsCollision.h" />
+    <ClInclude Include="System\Foundation\Math\Matrix.h" />
+    <ClInclude Include="System\Foundation\Math\Quaternion.h" />
+    <ClInclude Include="System\Foundation\Math\Transform.h" />
+    <ClInclude Include="System\Foundation\Math\Vector.h" />
+    <ClInclude Include="System\Game.h" />
+    <ClInclude Include="System\Platform\Input\Input.h" />
+    <ClInclude Include="System\Platform\Input\KeyState.h" />
+    <ClInclude Include="System\Platform\Sound\Sound.h" />
+    <ClInclude Include="System\Platform\Sound\SoundShortcut.h" />
+    <ClInclude Include="System\Platform\Time\Time.h" />
+    <ClInclude Include="System\Render\Camera\Camera.h" />
+    <ClInclude Include="System\Render\Camera\CameraFollow.h" />
+    <ClInclude Include="System\Render\Camera\CameraShake.h" />
+    <ClInclude Include="System\Render\Camera\DebugFlyCamera.h" />
+    <ClInclude Include="System\Render\Debug\DebugDraw.h" />
+    <ClInclude Include="System\Render\PostProcess\ScreenEffect.h" />
+    <ClInclude Include="System\Render\Renderer\ModelManager.h" />
+    <ClInclude Include="System\Render\Renderer\ModelRenderer.h" />
+    <ClInclude Include="System\Render\Renderer\SpriteRenderer.h" />
+    <ClInclude Include="System\Scene\Animation\Animator.h" />
+    <ClInclude Include="System\Scene\Collider\Collider.h" />
+    <ClInclude Include="System\Scene\Collider\CollisionLayer.h" />
+    <ClInclude Include="System\Scene\Collider\CollisionManager.h" />
+    <ClInclude Include="System\Scene\GameObject\GameObject.h" />
+    <ClInclude Include="System\Scene\Physics\Rigidbody.h" />
+    <ClInclude Include="System\Scene\SceneBase.h" />
+    <ClInclude Include="System\Scene\SceneManager.h" />
+    <ClInclude Include="System\Scene\SceneType.h" />
+    <ClInclude Include="Game\GameScene.h" />
+    <ClInclude Include="Game\Object\Block.h" />
+    <ClInclude Include="Game\Object\Player.h" />
+    <ClInclude Include="Game\TitleScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

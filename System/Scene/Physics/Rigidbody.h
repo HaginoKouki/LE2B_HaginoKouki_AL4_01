@@ -1,4 +1,3 @@
-// System/Scene/Physics/Rigidbody.h
 #pragma once
 /*====================================
  *

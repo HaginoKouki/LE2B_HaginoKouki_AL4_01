@@ -6,7 +6,7 @@
 
 void Game::Initialize() {
 	// KamataEngineの初期化.
-	KamataEngine::Initialize(L"TD2_01");
+	KamataEngine::Initialize(L"LE2B_HaginoKouki_AL4_01");
 
 	// DirectXCommonのインスタンスを取得.
 	dxCommon_ = KamataEngine::DirectXCommon::GetInstance();

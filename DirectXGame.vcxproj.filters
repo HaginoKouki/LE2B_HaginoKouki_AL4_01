@@ -19,14 +19,14 @@
     <Filter Include="System\Foundation">
       <UniqueIdentifier>{77ae0819-4475-46fa-a677-1198106bfd42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="System\Foundation\Animation">
+      <UniqueIdentifier>{846ad419-2388-48a7-a24f-4ae3d574fe70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Foundation\Grid">
+      <UniqueIdentifier>{86330d5e-ec83-4424-ab71-33531140f21f}</UniqueIdentifier>
+    </Filter>
     <Filter Include="System\Foundation\Math">
       <UniqueIdentifier>{1bbebab6-2c8e-4b8e-b9a1-0438b7832632}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="System\Scene">
-      <UniqueIdentifier>{58df6a29-aad4-4f2e-a62c-b543e0ef34ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="System\Scene\GameObject">
-      <UniqueIdentifier>{7d0d2563-e4cc-47fe-a466-f2d24f615d3d}</UniqueIdentifier>
     </Filter>
     <Filter Include="System\Platform">
       <UniqueIdentifier>{17e60e43-761a-44ef-9439-99b219ec7bef}</UniqueIdentifier>
@@ -34,17 +34,11 @@
     <Filter Include="System\Platform\Input">
       <UniqueIdentifier>{477593e0-e26b-4cda-b94f-b22633f56bcd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="System\Scene\Collider">
-      <UniqueIdentifier>{ae857601-fd30-40a4-b059-2de7bf340168}</UniqueIdentifier>
+    <Filter Include="System\Platform\Sound">
+      <UniqueIdentifier>{ae8d08f7-6a88-441c-9e08-a1e4a277f444}</UniqueIdentifier>
     </Filter>
     <Filter Include="System\Platform\Time">
       <UniqueIdentifier>{9a7d2230-7543-4000-8e1e-265f230d300d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="System\Foundation\Animation">
-      <UniqueIdentifier>{846ad419-2388-48a7-a24f-4ae3d574fe70}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="System\Scene\Animation">
-      <UniqueIdentifier>{abcdc22e-8a1b-4e45-881e-3a5bec5a3b4e}</UniqueIdentifier>
     </Filter>
     <Filter Include="System\Render">
       <UniqueIdentifier>{c5faf2c9-28ce-4ec6-8aba-710abd349a62}</UniqueIdentifier>
@@ -52,29 +46,35 @@
     <Filter Include="System\Render\Camera">
       <UniqueIdentifier>{833f54a8-67c0-4102-ad50-29b977c55601}</UniqueIdentifier>
     </Filter>
-    <Filter Include="System\Render\Renderer">
-      <UniqueIdentifier>{af23327e-616f-4b0b-9e36-024fac4e4609}</UniqueIdentifier>
-    </Filter>
     <Filter Include="System\Render\Debug">
       <UniqueIdentifier>{ead45cbf-d480-44c6-807c-dea5281a3b95}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="System\Scene\Physics">
-      <UniqueIdentifier>{3e842d63-65ee-4fc2-90c4-b7c965f5ab55}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="System\Platform\Sound">
-      <UniqueIdentifier>{ae8d08f7-6a88-441c-9e08-a1e4a277f444}</UniqueIdentifier>
     </Filter>
     <Filter Include="System\Render\PostProcess">
       <UniqueIdentifier>{343807a3-ecff-454b-97ad-bbff00012fa6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="System\Render\Renderer">
+      <UniqueIdentifier>{af23327e-616f-4b0b-9e36-024fac4e4609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Scene">
+      <UniqueIdentifier>{58df6a29-aad4-4f2e-a62c-b543e0ef34ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Scene\Animation">
+      <UniqueIdentifier>{abcdc22e-8a1b-4e45-881e-3a5bec5a3b4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Scene\Collider">
+      <UniqueIdentifier>{ae857601-fd30-40a4-b059-2de7bf340168}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Scene\GameObject">
+      <UniqueIdentifier>{7d0d2563-e4cc-47fe-a466-f2d24f615d3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Scene\Physics">
+      <UniqueIdentifier>{3e842d63-65ee-4fc2-90c4-b7c965f5ab55}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Game">
       <UniqueIdentifier>{5cc40f33-9f1d-4a3d-a29a-7a150806f155}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Temp">
-      <UniqueIdentifier>{f2e4538d-cb2b-47dd-ac9a-8bcbb7b82e59}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Puzzle">
-      <UniqueIdentifier>{e259f7d7-007c-4601-bd1d-bb49977543fd}</UniqueIdentifier>
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{475c80ce-d07c-4b03-9b67-d69465e5ec1b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -171,17 +171,14 @@
     <ClCompile Include="Game\GameScene.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Object\Block.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\Player.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
     <ClCompile Include="Game\TitleScene.cpp">
       <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Temp\StaticModelObject.cpp">
-      <Filter>Game\Temp</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Puzzle\PuzzleRule.cpp">
-      <Filter>Game\Puzzle</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Puzzle\StageText.cpp">
-      <Filter>Game\Puzzle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="System\Foundation\Animation\AnimationCurve.h">
       <Filter>System\Foundation\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Grid\Grid.h">
+      <Filter>System\Foundation\Grid</Filter>
     </ClInclude>
     <ClInclude Include="System\Foundation\Math\Collision2D.h">
       <Filter>System\Foundation\Math</Filter>
@@ -293,26 +293,20 @@
     <ClInclude Include="System\Scene\SceneManager.h">
       <Filter>System\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GameScene.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="System\Scene\SceneType.h">
       <Filter>System\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Game\TitleScene.h">
+    <ClInclude Include="Game\GameScene.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Temp\StaticModelObject.h">
-      <Filter>Game\Temp</Filter>
+    <ClInclude Include="Game\Object\Block.h">
+      <Filter>Game\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Puzzle\PuzzleRule.h">
-      <Filter>Game\Puzzle</Filter>
+    <ClInclude Include="Game\Object\Player.h">
+      <Filter>Game\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Puzzle\PuzzleState.h">
-      <Filter>Game\Puzzle</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Puzzle\StageText.h">
-      <Filter>Game\Puzzle</Filter>
+    <ClInclude Include="Game\TitleScene.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

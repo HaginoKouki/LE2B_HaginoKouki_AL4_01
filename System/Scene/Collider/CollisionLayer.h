@@ -18,6 +18,7 @@ enum class CollisionLayer : uint32_t {
 	Enemy = 1 << 3,
 	PlayerAttack = 1 << 4,
 	EnemyAttack = 1 << 5,
+	Item = 1 << 6,
 };
 
 inline constexpr uint32_t ToMask(CollisionLayer layer) {
