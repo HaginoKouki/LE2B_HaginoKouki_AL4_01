@@ -1,0 +1,60 @@
+root = true
+
+[*]
+charset = utf-8
+tab_width = 4
+indent_size = tab
+indent_style = tab
+max_line_length = 120
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# スペルミスをintellisense上での「エラー」として扱う.
+spelling_error_severity = error
+# チェック対象を「識別子（変数名など）」と「コメント」に限定する.
+spelling_checkable_types = identifiers,comments
+# 辞書を英語（米国）に設定する.
+spelling_languages = en-us
+# 自分の辞書を作れるように標準の除外辞書設定はそのまま使用.
+spelling_use_default_exclusion_dictionary = true
+# 自分の除外辞書を指定.
+spelling_exclusion_path = ./exclusion.dic
+
+[*.{cpp,h}]
+# K&R（同一行に {）.
+cpp_new_line_before_open_brace_namespace = same_line
+cpp_new_line_before_open_brace_type      = same_line
+cpp_new_line_before_open_brace_function  = same_line
+cpp_new_line_before_open_brace_block     = same_line
+cpp_new_line_before_open_brace_lambda    = same_line
+
+# } else { / } catch { / } while (...).
+cpp_new_line_before_else = false
+cpp_new_line_before_catch = false
+cpp_new_line_before_while_in_do_while = false
+
+# 空なら {} を許容.
+cpp_new_line_close_brace_same_line_empty_type = true
+cpp_new_line_close_brace_same_line_empty_function = true
+
+# インデント.
+cpp_indent_namespace_contents = false
+cpp_indent_access_specifiers = false
+cpp_indent_case_labels = false
+cpp_indent_case_contents = true
+cpp_indent_labels = false
+cpp_indent_braces = false
+cpp_indent_constructor_init_list = true
+cpp_indent_continuation_lines = 2
+cpp_indent_preprocessor = none
+cpp_indent_statements_within_blocks = true
+
+# include並び替えの警告を無効化.
+cpp_include_cleanup_style = none
+
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false
+
+[externals/**]
+generated_code = true

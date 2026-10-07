@@ -1,0 +1,62 @@
+# =============================================================
+# .clang-format
+# VS 2022 / VS Code 同梱の clang-format（v14 以降）想定.
+# .editorconfig と同じ階層に置けば、両エディタが整形時にこちらを優先する.
+# =============================================================
+
+Language: Cpp
+
+BasedOnStyle: LLVM		# LLVM標準を土台にして、以下で必要な項目だけ上書きする.
+
+# --- インデント（タブ） ---
+UseTab: AlignWithSpaces  	# インデントと折り返しはタブ、行内の桁揃えだけスペース.
+TabWidth: 4             	# タブ1つの表示幅. 見た目に合わせて変えてよい.
+IndentWidth: 4          	# インデント1段の幅. タブ幅と揃えている.
+ColumnLimit: 0          	# 1行の最大の長さ. 超えると折り返し対象になる.
+
+# --- 波括弧の位置：K&R（開き波括弧は同じ行） ---
+BreakBeforeBraces: Custom		# 波括弧の配置を自分で決める. 詳細は下の BraceWrapping で指定.
+BraceWrapping:
+  AfterNamespace: false       	# 名前空間の開き波括弧を宣言と同じ行に置く.
+  AfterClass: false            	# クラスの開き波括弧を宣言と同じ行に置く.
+  AfterStruct: false           	# 構造体の開き波括弧を宣言と同じ行に置く.
+  AfterUnion: false            	# 共用体の開き波括弧を宣言と同じ行に置く.
+  AfterEnum: false             	# 列挙型の開き波括弧を宣言と同じ行に置く.
+  AfterFunction: false         	# 関数の開き波括弧を宣言と同じ行に置く.
+  AfterControlStatement: Never 	# if や for などの開き波括弧を同じ行に置く.
+  AfterExternBlock: false      	# extern ブロックの開き波括弧を同じ行に置く.
+  BeforeLambdaBody: false      	# ラムダ本体の開き波括弧を同じ行に置く.
+  BeforeElse: false            	# else を閉じ波括弧と同じ行に置く.「} else {」の形.
+  BeforeCatch: false           	# catch を閉じ波括弧と同じ行に置く.「} catch {」の形.
+  BeforeWhile: false           	# do-while の while を閉じ波括弧と同じ行に置く.
+  SplitEmptyFunction: false    	# 空の関数は改行せず「{}」とまとめる.
+  SplitEmptyRecord: false      	# 空のクラス・構造体は改行せず「{}」とまとめる.
+  SplitEmptyNamespace: false   	# 空の名前空間は改行せず「{}」とまとめる.
+  IndentBraces: false          	# 波括弧そのものを余分にインデントしない.
+
+# --- インデントの細かい挙動 ---
+NamespaceIndentation: None   	# 名前空間の中身を余分にインデントしない.
+IndentCaseLabels: true         	# switch の case ラベルをインデントする.
+IndentAccessModifiers: false   	# public: などのアクセス指定子を余分にインデントしない.
+AccessModifierOffset: -4       	# アクセス指定子をクラス本体より1段左に戻す.
+IndentPPDirectives: None       	# #define などのプリプロセッサ指令を余分にインデントしない.
+ConstructorInitializerIndentWidth: 4	# コンストラクタ初期化リストのインデント幅.
+ContinuationIndentWidth: 4    		 	# 折り返した続きの行のインデント幅. 通常1段ぶん. タブ幅を変えたら要見直し.
+AlignAfterOpenBracket: BlockIndent		# 折り返し行を独立した行に置く.
+
+# --- ポインタと参照の書き方 ---
+DerivePointerAlignment: false  	# 既存コードからの寄せ方の推測をオフにして固定する.
+PointerAlignment: Left         	# ポインタの「*」を型側に寄せる.「int* p」の形.
+ReferenceAlignment: Left       	# 参照の「&」も型側に寄せる.「int& r」の形.
+
+# --- include の並べ替え ---
+SortIncludes: Never            	# include を自動で並べ替えず、書いた順を保つ.
+
+# --- 短い関数を1行にまとめる ---
+AllowShortFunctionsOnASingleLine: Inline  # クラス内の短いインライン関数と空関数を1行に保つ. ゲッター/セッター向け. None/Empty/InlineOnly/Inline/All から選択.
+AllowShortBlocksOnASingleLine: Empty      # 空のブロックだけ1行にまとめる.
+AllowShortLambdasOnASingleLine: All       # 短いラムダは1行にまとめる.
+AllowShortIfStatementsOnASingleLine: Never  # 短い if でも1行にまとめず必ず改行する.
+AllowShortLoopsOnASingleLine: false       # 短いループでも1行にまとめず必ず改行する.
+AllowShortCaseLabelsOnASingleLine: false  # 短い case ラベルでも1行にまとめない.
+AllowShortEnumsOnASingleLine: false       # 短い列挙型でも1行にまとめない.

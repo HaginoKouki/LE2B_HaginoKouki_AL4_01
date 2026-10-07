@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{8add0bf1-fd6f-414f-9d56-cb1101d2138e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Foundation">
+      <UniqueIdentifier>{77ae0819-4475-46fa-a677-1198106bfd42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Foundation\Math">
+      <UniqueIdentifier>{1bbebab6-2c8e-4b8e-b9a1-0438b7832632}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Scene">
+      <UniqueIdentifier>{58df6a29-aad4-4f2e-a62c-b543e0ef34ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Scene\GameObject">
+      <UniqueIdentifier>{7d0d2563-e4cc-47fe-a466-f2d24f615d3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Platform">
+      <UniqueIdentifier>{17e60e43-761a-44ef-9439-99b219ec7bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Platform\Input">
+      <UniqueIdentifier>{477593e0-e26b-4cda-b94f-b22633f56bcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Scene\Collider">
+      <UniqueIdentifier>{ae857601-fd30-40a4-b059-2de7bf340168}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Platform\Time">
+      <UniqueIdentifier>{9a7d2230-7543-4000-8e1e-265f230d300d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Foundation\Animation">
+      <UniqueIdentifier>{846ad419-2388-48a7-a24f-4ae3d574fe70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Scene\Animation">
+      <UniqueIdentifier>{abcdc22e-8a1b-4e45-881e-3a5bec5a3b4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Render">
+      <UniqueIdentifier>{c5faf2c9-28ce-4ec6-8aba-710abd349a62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Render\Camera">
+      <UniqueIdentifier>{833f54a8-67c0-4102-ad50-29b977c55601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Render\Renderer">
+      <UniqueIdentifier>{af23327e-616f-4b0b-9e36-024fac4e4609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Render\Debug">
+      <UniqueIdentifier>{ead45cbf-d480-44c6-807c-dea5281a3b95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Scene\Physics">
+      <UniqueIdentifier>{3e842d63-65ee-4fc2-90c4-b7c965f5ab55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Platform\Sound">
+      <UniqueIdentifier>{ae8d08f7-6a88-441c-9e08-a1e4a277f444}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Render\PostProcess">
+      <UniqueIdentifier>{343807a3-ecff-454b-97ad-bbff00012fa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{5cc40f33-9f1d-4a3d-a29a-7a150806f155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Temp">
+      <UniqueIdentifier>{f2e4538d-cb2b-47dd-ac9a-8bcbb7b82e59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Puzzle">
+      <UniqueIdentifier>{e259f7d7-007c-4601-bd1d-bb49977543fd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Foundation\Animation\AnimationClip.cpp">
+      <Filter>System\Foundation\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Foundation\Math\Collision2D.cpp">
+      <Filter>System\Foundation\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Foundation\Math\Collision3D.cpp">
+      <Filter>System\Foundation\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Foundation\Math\Geometry.cpp">
+      <Filter>System\Foundation\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Foundation\Math\IsCollision.cpp">
+      <Filter>System\Foundation\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Foundation\Math\Matrix.cpp">
+      <Filter>System\Foundation\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Foundation\Math\Quaternion.cpp">
+      <Filter>System\Foundation\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Foundation\Math\Transform.cpp">
+      <Filter>System\Foundation\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Foundation\Math\Vector.cpp">
+      <Filter>System\Foundation\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Game.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Platform\Input\Input.cpp">
+      <Filter>System\Platform\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Platform\Sound\Sound.cpp">
+      <Filter>System\Platform\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Platform\Time\Time.cpp">
+      <Filter>System\Platform\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Render\Camera\Camera.cpp">
+      <Filter>System\Render\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Render\Camera\CameraFollow.cpp">
+      <Filter>System\Render\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Render\Camera\CameraShake.cpp">
+      <Filter>System\Render\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Render\Camera\DebugFlyCamera.cpp">
+      <Filter>System\Render\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Render\Debug\DebugDraw.cpp">
+      <Filter>System\Render\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Render\PostProcess\ScreenEffect.cpp">
+      <Filter>System\Render\PostProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Render\Renderer\ModelManager.cpp">
+      <Filter>System\Render\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Render\Renderer\ModelRenderer.cpp">
+      <Filter>System\Render\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Render\Renderer\SpriteRenderer.cpp">
+      <Filter>System\Render\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Scene\Animation\Animator.cpp">
+      <Filter>System\Scene\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Scene\Collider\Collider.cpp">
+      <Filter>System\Scene\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Scene\Collider\CollisionManager.cpp">
+      <Filter>System\Scene\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Scene\GameObject\GameObject.cpp">
+      <Filter>System\Scene\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Scene\Physics\Rigidbody.cpp">
+      <Filter>System\Scene\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Scene\SceneBase.cpp">
+      <Filter>System\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Scene\SceneManager.cpp">
+      <Filter>System\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameScene.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\TitleScene.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Temp\StaticModelObject.cpp">
+      <Filter>Game\Temp</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Puzzle\PuzzleRule.cpp">
+      <Filter>Game\Puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Puzzle\StageText.cpp">
+      <Filter>Game\Puzzle</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="System\Foundation\Animation\AnimationClip.h">
+      <Filter>System\Foundation\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Animation\AnimationCurve.h">
+      <Filter>System\Foundation\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Math\Collision2D.h">
+      <Filter>System\Foundation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Math\Collision3D.h">
+      <Filter>System\Foundation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Math\Convert.h">
+      <Filter>System\Foundation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Math\Easing.h">
+      <Filter>System\Foundation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Math\Geometry.h">
+      <Filter>System\Foundation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Math\Geometry2D.h">
+      <Filter>System\Foundation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Math\IsCollision.h">
+      <Filter>System\Foundation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Math\Matrix.h">
+      <Filter>System\Foundation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Math\Quaternion.h">
+      <Filter>System\Foundation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Math\Transform.h">
+      <Filter>System\Foundation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Foundation\Math\Vector.h">
+      <Filter>System\Foundation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Game.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Platform\Input\Input.h">
+      <Filter>System\Platform\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Platform\Input\KeyState.h">
+      <Filter>System\Platform\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Platform\Sound\Sound.h">
+      <Filter>System\Platform\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Platform\Sound\SoundShortcut.h">
+      <Filter>System\Platform\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Platform\Time\Time.h">
+      <Filter>System\Platform\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Render\Camera\Camera.h">
+      <Filter>System\Render\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Render\Camera\CameraFollow.h">
+      <Filter>System\Render\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Render\Camera\CameraShake.h">
+      <Filter>System\Render\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Render\Camera\DebugFlyCamera.h">
+      <Filter>System\Render\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Render\Debug\DebugDraw.h">
+      <Filter>System\Render\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Render\PostProcess\ScreenEffect.h">
+      <Filter>System\Render\PostProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Render\Renderer\ModelManager.h">
+      <Filter>System\Render\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Render\Renderer\ModelRenderer.h">
+      <Filter>System\Render\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Render\Renderer\SpriteRenderer.h">
+      <Filter>System\Render\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Scene\Animation\Animator.h">
+      <Filter>System\Scene\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Scene\Collider\Collider.h">
+      <Filter>System\Scene\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Scene\Collider\CollisionLayer.h">
+      <Filter>System\Scene\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Scene\Collider\CollisionManager.h">
+      <Filter>System\Scene\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Scene\GameObject\GameObject.h">
+      <Filter>System\Scene\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Scene\Physics\Rigidbody.h">
+      <Filter>System\Scene\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Scene\SceneBase.h">
+      <Filter>System\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Scene\SceneManager.h">
+      <Filter>System\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameScene.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Scene\SceneType.h">
+      <Filter>System\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TitleScene.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Temp\StaticModelObject.h">
+      <Filter>Game\Temp</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Puzzle\PuzzleRule.h">
+      <Filter>Game\Puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Puzzle\PuzzleState.h">
+      <Filter>Game\Puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Puzzle\StageText.h">
+      <Filter>Game\Puzzle</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
